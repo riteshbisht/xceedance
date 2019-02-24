@@ -1,2 +1,2 @@
-web: gunicorn featurerequest.config.wsgi
+web: gunicorn xceedance.config.wsgi
 
