@@ -26,7 +26,7 @@ sys.path.append(os.path.join(BASE_DIR, 'apps'))
 SECRET_KEY = 'edn1xh#qmn5!srigcgyq&y61_h90+7(eh09v)2m1-gby_f*r^m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', True)
+DEBUG = eval(os.environ.get('DEBUG', True))
 
 ALLOWED_HOSTS = ['*']
 
