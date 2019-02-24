@@ -55,6 +55,7 @@ AUTH_USER_MODEL = 'users.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -102,7 +103,7 @@ if DEBUG:
 else:
     import dj_database_url
     DATABASES = {}
-    DATABASES['default'] =  dj_database_url.config()
+    DATABASES['default'] = dj_database_url.config()
 
 
 ROOT_URLCONF = 'xceedance.config.urls'
