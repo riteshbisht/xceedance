@@ -26,7 +26,7 @@ sys.path.append(os.path.join(BASE_DIR, 'apps'))
 SECRET_KEY = 'edn1xh#qmn5!srigcgyq&y61_h90+7(eh09v)2m1-gby_f*r^m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', True)
 
 ALLOWED_HOSTS = ['*']
 
@@ -87,17 +87,22 @@ WSGI_APPLICATION = 'xceedance.config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'xceedance',
-        'USER': 'root',
-        'PASSWORD': 'redhat',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    },
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'xceedance',
+            'USER': 'root',
+            'PASSWORD': 'redhat',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        },
 
-}
+    }
+else:
+    import dj_database_url
+    DATABASES['default'] =  dj_database_url.config()
+
 
 ROOT_URLCONF = 'xceedance.config.urls'
 
@@ -148,3 +153,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_core')]
 
 DATE_INPUT_FORMATS = ["%d-%m-%Y"]
+
+
