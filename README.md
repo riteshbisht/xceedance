@@ -1,4 +1,4 @@
-tue Request APP**
+**Feature Request APP**
 
 * Steps to run the Project
   * Database Setup
@@ -7,13 +7,18 @@ tue Request APP**
   * VirtualEnv
      * Create Virtualenvironment and activate it
      *  Install requirement/dev.txt and requirements/common.txt
-        using command pip install -r requirements/dev.txt and
-        pip install requirements/common.txt
+        using command
+        * pip install -r requirements/dev.txt and
+        * pip install requirements/common.txt
+   * Run migrations
+        * python manage.py migrate
    * Load initial data for client table using management command
-        python manage.py load_initial_data
+        * python manage.py load_initial_data
     
    * Run server
-        python manage.py runserver   
+        * python manage.py runserver   
    
+    * for running api unit test case for feature 
+         * python manage.py test
  
 ~                              
